@@ -3,38 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ministère de la Sécurité</title>
+    <title>SHADOWCOMM</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
             font-family: Arial, sans-serif;
             overflow: hidden;
             background-color: black;
             color: white;
+            height: 100%;
+            width:100%;
+            
+        }
+        #background-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            z-index: 0; 
+            object-fit: cover;
+        }
+
+
+        h1 {
+            color:red;
+            position: relative;
+            z-index: 1;
         }
         
-
-        #video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            z-index: -1;
-        }
 
         header {
             padding: 15px;
             text-align: center;
             background: rgba(0, 0, 0, 0.8);
+            position:relative;
         }
         nav {
             background: rgba(0, 0, 0, 0.6);
             padding: 10px;
             text-align: right;
+            position: absolute;
+            z-index: 2;
         }
         nav a {
             color: white;
@@ -65,18 +79,30 @@
             padding: 10px;
             font-size: 14px;
         }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            top: 40%;
+            font-family: Arial, sans-serif;
+        }
+            
     </style>
 </head>
 <body>
-    <video autoplay muted loop id="video-background">
-    <source src="vidéo.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas la vidéo.
-    </video>
-
     <header>
+        
         <h1>SHADOWCOMM</h1>
     </header>
 
+
+    <?php $video = "video.mp4"; ?>
+    <video autoplay loop muted playsinline id="background-video">
+    <source src="<?php echo $video; ?>" type="video/mp4">
+    </video>
     <nav>
         <a href="register.php">Inscription</a>
         <a href="login.php">Connexion</a>
@@ -90,8 +116,8 @@
         <p>Contact : contact@shadowcomm.fr | Tél: +33 07 23 45 67 89</p>
         <p>&copy; 2024 Ministère de la Sécurité. Tous droits réservés.</p>
     </footer>
+
+
 </body>
 </html>
 
-
-c:\xampp\htdocs\chat
